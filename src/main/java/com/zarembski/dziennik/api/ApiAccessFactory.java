@@ -18,17 +18,17 @@ import javax.ws.rs.core.MediaType;
 @Component
 @RequiredArgsConstructor
 @PropertySource("classpath:config.properties")
-public class APIAccessFactory {
+public class ApiAccessFactory {
 
     private final String host = "https://api.librus.pl/OAuth/Token";
     private final String token = "Mjg6ODRmZGQzYTg3YjAzZDNlYTZmZmU3NzdiNThiMzMyYjE=";
 
-    @Value("${username}")
+    @Value("${user}")
     private String username;
     @Value("${password}")
     private String password;
 
-    Logger logger = LoggerFactory.getLogger(APIAccessFactory.class);
+    Logger logger = LoggerFactory.getLogger(ApiAccessFactory.class);
 
     private LibrusAuthToken librusAuthToken;
 
@@ -58,6 +58,6 @@ public class APIAccessFactory {
 
     public String getAuthToken() {
         logger.info("Get " + (librusAuthToken == null ? "new" : "existing") + " AUTH token");
-        return librusAuthToken == null ? refreshAuthTokenAndGet() : librusAuthToken.accessToken;
+        return librusAuthToken == null || librusAuthToken.accessToken == null ? refreshAuthTokenAndGet() : librusAuthToken.accessToken;
     }
 }

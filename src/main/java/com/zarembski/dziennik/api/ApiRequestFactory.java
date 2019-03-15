@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 public class ApiRequestFactory {
 
     @Autowired
-    APIAccessFactory apiAccessFactory;
+    ApiAccessFactory apiAccessFactory;
 
     public static final String URL = "https://api.librus.pl/2.0/";
 

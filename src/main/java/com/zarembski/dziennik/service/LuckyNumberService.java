@@ -1,14 +1,9 @@
 package com.zarembski.dziennik.service;
 
-import com.zarembski.dziennik.api.ApiRequestFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LuckyNumberService {
-
-    @Autowired
-    ApiRequestFactory apiRequestFactory;
+public class LuckyNumberService extends BaseService{
 
     public static final String ENDPOINT = "LuckyNumbers";
 
