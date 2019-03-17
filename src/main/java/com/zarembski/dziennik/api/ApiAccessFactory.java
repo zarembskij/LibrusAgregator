@@ -45,7 +45,7 @@ public class ApiAccessFactory {
 
     private String refreshAuthTokenAndGet() {
         refreshToken();
-        return librusAuthToken.accessToken;
+        return librusAuthToken.getAccessToken();
     }
 
     private Form getRequestBody() {
@@ -58,6 +58,6 @@ public class ApiAccessFactory {
 
     public String getAuthToken() {
         logger.info("Get " + (librusAuthToken == null ? "new" : "existing") + " AUTH token");
-        return librusAuthToken == null || librusAuthToken.accessToken == null ? refreshAuthTokenAndGet() : librusAuthToken.accessToken;
+        return librusAuthToken == null || librusAuthToken.getAccessToken() == null ? refreshAuthTokenAndGet() : librusAuthToken.getAccessToken();
     }
 }
