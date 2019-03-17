@@ -31,10 +31,9 @@ public class ApiAccessFactory {
     Logger logger = LoggerFactory.getLogger(ApiAccessFactory.class);
 
     private LibrusAuthToken librusAuthToken;
+    private Client client = ClientBuilder.newClient(new ClientConfig());
 
     private void refreshToken() {
-        Client client = ClientBuilder.newClient(new ClientConfig());
-
         librusAuthToken = client.target(host)
                 .request(MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.AUTHORIZATION, "Basic " + token)
